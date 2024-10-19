@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PowerHomeTech</title>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <style>
         #root {
             margin: 0;
             padding: 0;
+            background-color: antiquewhite;
+            overflow-x: hidden;
         }
         body {
             margin: 0;
@@ -16,7 +19,7 @@
         }
 
         .top-header {
-            position: sticky;
+            position: relative;
             top: 0;
             right: 0;
             left: 0;
@@ -26,10 +29,11 @@
             align-items: center;
             justify-content: space-between;
             height: 100px;
+            min-height: 100px;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            background-color: rgba(255, 248, 207, 0.9);
+            background-color: rgb(255, 248, 207);
         }
         .logo {
             width: 20%;
@@ -55,9 +59,91 @@
             background-image: url(keys.jpg);
             margin: 0;
             padding: 0;
-            height: 80vh;
+            height: auto; /* Change height to auto to accommodate content */
+            overflow: hidden; /* Ensure it contains floated children */
         }
 
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* Style inputs with type="text", select elements and textareas */
+        input[type=text], input, textarea {
+            width: 100%; /* Full width */
+            padding: 12px; /* Some padding */ 
+            border: 1px solid #ccc; /* Gray border */
+            border-radius: 4px; /* Rounded borders */
+            box-sizing: border-box; /* Make sure that padding and width stays in place */
+            margin-top: 6px; /* Add a top margin */
+            margin-bottom: 16px; /* Bottom margin */
+            resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+        }
+        
+        /* Style the submit button with a specific background color etc */
+        input[type=submit] {
+            background-color: rgb(255, 248, 207);
+            color: black;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        /* When moving the mouse over the submit button, add a darker green color */
+        input[type=submit]:hover {
+            background-color: goldenrod;
+        }
+        
+        /* Add a background color and some padding around the form */
+        .contact {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logoo {
+            max-width: 50%;
+            text-align: center;
+            font-size: large;
+            text-align: justify;
+            padding-left: 10px;
+            padding-right: 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-shadow: 1px 1px 2px pink;
+            opacity: 0; /* Start invisible */
+            transform: translateX(-100px); /* Start from left side */
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Smooth transition */
+        }
+        .container {
+            float: right;
+            max-width: 50%;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.589);
+            padding: 20px;
+            margin: 20px 2px 20px auto;
+            opacity: 0; /* Start invisible */
+            transform: translateX(100px); /* Start from right side */
+            transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition */
+        }
+        .logoo.visible, .container.visible {
+            opacity: 1; /* Make visible */
+            transform: translateX(0); /* Move to original position */
+        }
+    
+        /* Responsive styling */
+        @media screen and (max-width: 768px) {
+            .contact {
+                flex-direction: column; /* Stack elements on mobile */
+                align-items: flex-start;
+            }
+            .logoo, .container {
+                max-width: 100%;
+            }
+        }
+                
+ 
         .footer {
             position: relative;
             bottom: 0;
@@ -104,7 +190,7 @@
     <div id="root">
         <div class="top-header">
             <div class="logo">
-                <img src="phts.png">
+                <img src="media/phts.png">
             </div>
             <div class="navs">
                 <p>About</p>
@@ -115,51 +201,66 @@
             </div>
         </div>
 
-        <div class="main">
-            <div class="slideshow-container">
-                <div class="mySlides fade">
-                    <div class="numbertext">1 / 3</div>
-                    <img src="img1.jpg" style="width:100%">
+        <div class="main clearfix">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
-                
-                <div class="mySlides fade">
-                    <div class="numbertext">2 / 3</div>
-                    <img src="img2.jpg" style="width:100%">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="media/ai-generated.jpg" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="media/air-conditioner.png" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="media/worker.jpg" class="d-block w-100" alt="...">
+                  </div>
                 </div>
-                
-                <div class="mySlides fade">
-                    <div class="numbertext">3 / 3</div>
-                    <img src="img3.jpg" style="width:100%">
-                </div>
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
-            </div>
-            <br>    
-            <div style="text-align:center">
-                <span class="dot" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
-            </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
         </div>
 
         <div class="extra">
 
         </div>
-
         <div class="contact">
-            <div>
+            <div class="logoo">
+                <h1>Let your machine breathe</h1>
+                <p>At Power Home Tech Services, we pride ourselves on offering the highest quality 
+                    Air conditioning, Refrigeration, HVAC systems, electromechanics and electrical 
+                    solutions throughout Tanzania. Our company started in 2019 as Team of Graduate 
+                    students and in 2021 was rebranded to Power Home Tech Services. We have a team 
+                    of over 10 experts with a combined experience in our industry. We are leaders and 
+                    innovators in our fields and use our expertise to deliver quality products and 
+                    services on time and on budget across air conditioning, refrigeration and 
+                    electromechanics services. At Power Home Tech every client is important to us. 
+                    Meeting your objectives, your budget and your timeframes is our priority. We pride 
+                    ourselves on finding the right long term, sustainable solution for your project 
+                    because at Power home tech services care.</p>
+            </div>
+            <div class="container" id="contact-container">
                 <h3>Contact Us</h3>
                 <p>We love hearing from you! Please contact us with any questions or comments and one of our staff members will quickly respond to your request.</p>
-            </div>
-            <div>
-                <form method="post" action="mailto:abrahamchandafa@gmail.com" id="survey-form">
-                    <label id="name-label">First Name<input id="f-name" type="text" placeholder="Enter your first name" required ></label>
-                    <label id="name-label">First Name<input id="l-name" type="text" placeholder="Enter your first name" required ></label>
-                    <label id="email-label">Email<input id="email" type="email" placeholder="example@email.com" required> </label>
-                    <label for="comments">Message
-                        <textarea id="comments" rows="3" cols="30" placeholder="Enter your message here..."></textarea>
-                      </label>
-                      <input type="submit" value="Submit" id="submit">
+                <form action="action_page.php">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="email@example.com">
+                    <label for="subject">Subject</label>
+                    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+                    <input type="submit" value="Submit">
                 </form>
             </div>
         </div>
@@ -202,4 +303,22 @@
 
     </div>
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const logoo = document.querySelector('.logoo');
+        const contactContainer = document.getElementById('contact-container');
+        
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    logoo.classList.add('visible');
+                    contactContainer.classList.add('visible');
+                    //observer.unobserve(entry.target); // Stop observing after it has appeared
+                }
+            });
+        });
+
+        observer.observe(contactContainer); // Start observing the contact container
+    });
+</script>
 </html>
