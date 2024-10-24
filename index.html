@@ -6,11 +6,12 @@
     <title>PowerHomeTech</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
         #root {
             margin: 0;
             padding: 0;
-            background-color: antiquewhite;
+            background-color:aliceblue;
             overflow-x: hidden;
         }
         body {
@@ -33,7 +34,8 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            background-color: rgb(255, 248, 207);
+            /*background-color: rgb(255, 248, 207);*/
+            background-color:aliceblue;
         }
         .logo {
             width: 20%;
@@ -67,6 +69,50 @@
             content: "";
             clear: both;
             display: table;
+        }
+
+        .poppy  {
+            position: relative;
+        }
+
+        .poppy img {
+            height: 80vh; /* Set a fixed height */
+            object-fit: cover; /* Ensure the image covers the area without distortion */
+            width: 100%; /* Maintain full width */
+        }
+
+        .poppy-child {
+            position: absolute; /* Change to absolute positioning */
+            top: 0;          /* Adjust as needed */
+            left: 80%;         /* Center horizontally */
+            transform: translateX(-50%); /* Center horizontally */
+            height: 100%;      /* Adjust height as needed */
+            width: 30%;        /* Width of the overlay */
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            color: white;      /* Text color */
+            text-align: center; /* Center text */
+            padding: 10px;     /* Add some padding */
+            z-index: 1;        /* Ensure it's on top */
+        }
+
+        .poppy h3 {
+            font-family: 'Lato', sans-serif;; /* Good font choice */
+            font-size: 2em; /* Size of the heading */
+            color: white; /* Text color */
+            text-align: center; /* Center the heading */
+            margin: 10% 0 0 0; /* Margin around the heading */
+        }
+        
+        .poppy p {
+            height: 80%; /* Fill 80% of the height */
+            text-align: justify; /* Justify the text */
+            font-family: 'Lato', sans-serif; /* Good font choice for paragraphs */
+            color: white; /* Text color */
+            margin: 0 5%; /* Add some margin on the sides */
+            padding: 10px; /* Padding for better spacing */
+            overflow: auto; /* Ensure content is scrollable if it overflows */
+            font-size: 18px;
+
         }
 
         /* Style inputs with type="text", select elements and textareas */
@@ -125,7 +171,7 @@
             margin: 20px 2px 20px auto;
             opacity: 0; /* Start invisible */
             transform: translateX(100px); /* Start from right side */
-            transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition */
+            transition: opacity 2s ease-out, transform 2s ease-out; /* Smooth transition */
         }
         .logoo.visible, .container.visible {
             opacity: 1; /* Make visible */
@@ -175,6 +221,53 @@
             color: black;
         }
 
+        body {
+            background-color: #f6f8f9; /* Light cream background */
+            color: #333; /* Dark gray text color */
+        }
+        
+        .top-header {
+            background-color:aliceblue; /* Soft blue background */
+        }
+
+        
+        .poppy-child {
+            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay for text */
+        }
+        
+        .poppy h3 {
+            color: #4a90e2; /* Soft blue for headings */
+        }
+        
+        .poppy p {
+            color: white; /* White text in overlays */
+        }
+        
+        input[type=submit] {
+            background-color: #7ed321; /* Soft green for buttons */
+            color: white; /* White text for buttons */
+        }
+        
+        input[type=submit]:hover {
+            background-color: #6cbf2c; /* Darker green on hover */
+        }
+        
+        .footer {
+            background-color: #333; /* Light footer background */
+        }
+        
+        .footer p {
+            color: rgb(255, 248, 207);
+        }
+        
+        .icons a {
+            color: #4a90e2; /* Soft blue for icon links */
+        }
+        
+        .icons a:hover {
+            color: #7ed321; /* Soft green on hover */
+        }
+
         @media screen and (min-width: 900px) {          
             #root {
                 max-width: 100%;
@@ -201,33 +294,55 @@
             </div>
         </div>
 
-        <div class="main clearfix">
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <div class="main-pops">
+            <div class="main clearfix">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    </div>
+                    <div class="carousel-inner">
+                    <div class="carousel-item active poppy">
+                        <img src="media/screenshot.png" class="d-block w-100" alt="...">
+                        <div class="poppy-child">
+                            <h3>Who We Are</h3>
+                            <p>Power Home Tech Services Limited is a leading provider of air conditioning, refrigeration, HVAC systems, electromechanics, and electrical solutions in Tanzania. Founded in 2019 by a team of visionary graduates, we rebranded in 2021 to reflect our growth and expertise. Our skilled team is committed to innovation and excellence, delivering projects on time and within budget. We prioritize each client, offering sustainable and tailored solutions to meet diverse needs.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item poppy">
+                        <img src="media/worker.jpg" class="d-block w-100" alt="...">
+                        <div class="poppy-child">
+                            <h3>What We Do</h3>
+                            <p>We specialize in providing high-quality air conditioning, refrigeration, HVAC systems, electromechanics, and electrical solutions throughout Tanzania. With a team of expert professionals, we deliver innovative and reliable services, ensuring timely project completion and customer satisfaction. Our focus includes comprehensive maintenance, installation, and efficient after-sales support, tailored to meet the unique needs of each client. Located in Mabibo, Dar es Salaam, we are committed to sustainability and excellence in every aspect of our operations.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item poppy">
+                        <img src="media/generator.jpg" class="d-block w-100" alt="...">
+                        <div class="poppy-child">
+                            <h3>Our Vision</h3>
+                            <p>To be the premier provider of innovative and outstanding solutions in air conditioning, refrigeration, and electromechanics, enhancing the lives of our clients and supporting sustainable development.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item poppy">
+                        <img src="media/ai-generated.jpg" class="d-block w-100" alt="...">
+                        <div class="poppy-child">
+                            <h3>Our Mission</h3>
+                            <p>To minimize the carbon footprint by providing sustainable and environmentally friendly solutions, aligning with global standards while ensuring exceptional service quality.</p>
+                        </div>
+                    </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="media/ai-generated.jpg" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="media/air-conditioner.png" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="media/worker.jpg" class="d-block w-100" alt="...">
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
+            </div>
         </div>
 
         <div class="extra">
